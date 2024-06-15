@@ -1,6 +1,6 @@
 # Short URL Discord Bot
 
-![Short URL Discord Bot](./public/coverimage.png)
+<img src="./public/coverimage.png" alt="Short URL Discord Bot" style="width: 100%;">
 
 ## Description
 
