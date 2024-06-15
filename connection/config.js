@@ -1,9 +1,11 @@
 const mongoose = require("mongoose");
 
 function handleConnection(path) {
-  mongoose.connect(path).then(() => {
-    console.log("MongoDB Connected!");
-  });
+  mongoose
+    .connect(path, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+      console.log("MongoDB Connected!");
+    });
 }
 
 module.exports = handleConnection;

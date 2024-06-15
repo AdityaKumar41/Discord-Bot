@@ -9,6 +9,7 @@ const mongoose = require("mongoose");
 const User = require("./model/users");
 const urlRouter = require("./routers/url");
 const bodyParser = require("body-parser");
+const handleConnection = require("./connection/config");
 
 require("dotenv").config();
 
@@ -20,10 +21,8 @@ const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const SECRECT = process.env.SECRECT;
 const REDIRECT_URI = "http://localhost:8000/auth/callback";
 
-mongoose.connect(DB_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// add handler
+handleConnection(DB_URL);
 
 app.use(bodyParser.json());
 app.use(
@@ -36,7 +35,7 @@ app.use(
 );
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
-
+app.use(express.static(path.resolve("./public")));
 // Generate code verifier and challenge
 function generateCodeVerifier() {
   return crypto
