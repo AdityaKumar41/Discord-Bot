@@ -83,6 +83,7 @@ client.on("interactionCreate", async (interaction) => {
     if (!isValidURL(url)) {
       await interaction.reply({
         content: `Please provide a valid URL.`,
+        ephemeral: true,
       });
       return;
     }

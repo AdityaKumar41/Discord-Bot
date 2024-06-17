@@ -1,13 +1,15 @@
 const urlModel = require("../model/url");
 const ShortUniqueId = require("short-unique-id");
+const requestIp = require("request-ip");
 async function handleUserUrl(req, res) {
   try {
     const uid = req.params.shortId;
+    const clientIp = requestIp.getClientIp(req);
     const entry = await urlModel.findOneAndUpdate(
       { urlEncoded: uid },
       {
         $push: {
-          visitHistory: { timestamp: Date.now(), Ipaddress: req.ip },
+          visitHistory: { timestamp: Date.now(), Ipaddress: clientIp },
         },
       }
     );
