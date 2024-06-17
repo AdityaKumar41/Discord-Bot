@@ -61,7 +61,7 @@ client.on("interactionCreate", async (interaction) => {
 
   if (!dbUser) {
     await interaction.reply({
-      content: `You need to authenticate first. Please visit http://localhost:8000/auth`,
+      content: `You need to authenticate first. Please visit https://discord-bot-gepg.onrender.com/auth`,
       ephemeral: true,
     });
     return;
@@ -88,7 +88,7 @@ client.on("interactionCreate", async (interaction) => {
     }
 
     try {
-      const response = await fetch("http://localhost:8000/", {
+      const response = await fetch("https://discord-bot-gepg.onrender.com/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url }),
@@ -100,7 +100,7 @@ client.on("interactionCreate", async (interaction) => {
       const shortUrl = data.shortUrl.urlEncoded;
 
       await interaction.reply({
-        content: `Your short URL is: http://localhost:8000/${shortUrl}`,
+        content: `Your short URL is: https://discord-bot-gepg.onrender.com/${shortUrl}`,
         ephemeral: true,
       });
     } catch (error) {

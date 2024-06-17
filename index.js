@@ -19,7 +19,7 @@ const DB_URL = process.env.DATABASE_URL;
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const SECRECT = process.env.SECRECT;
-const REDIRECT_URI = "http://localhost:8000/auth/callback";
+const REDIRECT_URI = "https://discord-bot-gepg.onrender.com/auth/callback";
 
 // add handler
 handleConnection(DB_URL);
@@ -159,5 +159,5 @@ app.get("/auth/callback", async (req, res) => {
 app.use("/", urlRouter);
 
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running successfully at PORT ${PORT}`);
 });
