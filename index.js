@@ -20,7 +20,7 @@ const DB_URL = process.env.DATABASE_URL;
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const SECRECT = process.env.SECRECT;
-const REDIRECT_URI = "https://discord-bot-gepg.onrender.com/auth/callback";
+const REDIRECT_URI = "https://api.adityam.live/auth/callback";
 
 // add handler
 handleConnection(DB_URL);

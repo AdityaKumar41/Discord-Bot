@@ -61,7 +61,7 @@ client.on("interactionCreate", async (interaction) => {
 
   if (!dbUser) {
     await interaction.reply({
-      content: `You need to authenticate first. Please visit https://discord-bot-gepg.onrender.com/auth`,
+      content: `You need to authenticate first. Please visit https://api.adityam.live/auth`,
       ephemeral: true,
     });
     return;
@@ -88,7 +88,7 @@ client.on("interactionCreate", async (interaction) => {
     }
 
     try {
-      const response = await fetch("https://discord-bot-gepg.onrender.com/", {
+      const response = await fetch("https://api.adityam.live/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url }),
@@ -100,7 +100,7 @@ client.on("interactionCreate", async (interaction) => {
       const shortUrl = data.shortUrl.urlEncoded;
 
       await interaction.reply({
-        content: `Your short URL is: https://discord-bot-gepg.onrender.com/${shortUrl}`,
+        content: `Your short URL is: https://api.adityam.live/${shortUrl}`,
         ephemeral: true,
       });
     } catch (error) {
